@@ -1,6 +1,6 @@
 use std::io;
 use tui::{layout::{Constraint, Direction, Layout}, style::{Color, Modifier, Style}, widgets::{Table, Row, Cell }};
-use tui::widgets::{Block, Borders};
+use tui::widgets::{Block};
 use tui::{backend::Backend, Terminal};
 use tui::text::{ Span, Spans};
 
@@ -8,7 +8,7 @@ use crate::tinkoff_api::models::PortfolioPosition;
 
 pub fn draw<B: Backend>(
     terminal: &mut Terminal<B>,
-    positions: &[PortfolioPosition],
+    _positions: &[PortfolioPosition],
 ) -> Result<(), io::Error> {
     terminal.draw(|f| {
         let chunks = Layout::default()
@@ -16,7 +16,7 @@ pub fn draw<B: Backend>(
             .margin(1)
             .constraints([Constraint::Percentage(100)].as_ref())
             .split(f.size());
-        let block = Block::default().title("Portfolio").borders(Borders::ALL);
+        //let block = Block::default().title("Portfolio").borders(Borders::ALL);
 
         let table = Table::new(vec![
             Row::new(vec!["Row11", "Row12", "Row13"]),
